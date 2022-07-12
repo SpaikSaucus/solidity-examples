@@ -33,9 +33,9 @@ Snippets and more...
     * [Solidity Documentation](https://docs.soliditylang.org)
 
 ## Tips
----
-### default value
 
+### default value
+---
 The concept of "undefined" or "null" values ​​does not exist in Solidity, but newly declared variables always have a default value it depends on your type.
     
 * uint:0
@@ -51,7 +51,7 @@ The concept of "undefined" or "null" values ​​does not exist in Solidity, bu
 * function: if internal, an empty function. If external, a function that throws an error when called.
 
 ### max value
-  
+---
 uint can store 2^256-1 numbers.
 int store half of it. e.g. 2^256/2-1 numbers.
 
@@ -71,11 +71,13 @@ int store half of it. e.g. 2^256/2-1 numbers.
 
 
 ### public vs external
+---
 Basically, public means it can be external or internal, the compiler needs additional work for the civil service. With the external, it allows to read arguments directly from calldata, skipping the copy step.
 
 So if you know that the function you create only allows external calls, choose external. Provides performance benefits and you'll save on gas.
 
 ### pure vs view
+---
 The pure function declares that no state variables will be changed or read.
 
 * pure tells us that the function not only does not save any data on the blockchain, it also does not read any data from the blockchain.
@@ -85,7 +87,7 @@ The pure function declares that no state variables will be changed or read.
 Pure and view functions cost gas if called internally from another function. They are only free if called externally, from outside the blockchain.
 
 ### memory vs calldata vs storage
-
+---
 * Use calldata when you only need read-only data, avoiding the cost of allocating memory or storage.
 
 * Use memory if you want your argument to be mutable.
@@ -93,7 +95,7 @@ Pure and view functions cost gas if called internally from another function. The
 * Use storage if your argument will already exist in storage, to avoid copying something in memory storage unnecessarily.
 
 ### array vs mapping
- 
+---
 * array has push, pop and length method
 * array can be fixed [3] or dynamic []
 * array can be looped, but if it's too big it can end up costing a lot of gas
@@ -105,9 +107,11 @@ Pure and view functions cost gas if called internally from another function. The
 * mapping is a hash table, it is much more efficient
 
 ### interface
+---
 Through interfaces we can consume other Smart Contracts that are in the blockchain, in the tips section we can see an example.
 
 ### timestamp
+---
 block.timestamp;
 
 Ethereum uses the Unix time representation for timestamps, you can use a utility like this to convert ranges of integers to dates
@@ -118,17 +122,19 @@ Ethereum uses the Unix time representation for timestamps, you can use a utility
 * Using uint64 should be valid for 584,942,417,355 years after 1970
 
 ### unchecked
-
+---
 > SafeMath is not needed for pragma >= 0.8.0. The compiler now implements what SafeMath does. 
 > However the **unchecked** we can use it to optimize the gas. In te snippet secction
 
 ### delegatecall
+---
 There is a special function in Solidity called DELEGATECALL that allows you to call another contract using the context of the caller, not that of the recipient.
 
 
 ## Snippets
----
+
 ### array
+---
 
 ```solidity
 
@@ -150,7 +156,7 @@ There is a special function in Solidity called DELEGATECALL that allows you to c
 ```
 
 ### unchecked
-
+---
 ```solidity
   uint256 length = array.length;
   for(uint256 i = 0; i < length; i++) {
@@ -171,7 +177,7 @@ So we can rewrite the loop this way and potentially save a significant amount of
 ```
 
 ### interface
-
+---
 ```solidity
   interface IProofOfHumanity {
       // https://etherscan.io/address/0xc5e9ddebb09cd64dfacab4011a0d5cedaf7c9bdb
