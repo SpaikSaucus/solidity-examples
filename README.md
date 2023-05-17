@@ -25,7 +25,7 @@ Snippets and more...
 
 ## Getting Started
 
-* Download
+* Download this repository
 * Copy some file **.sol** in [Remix IDE](https://remix.ethereum.org) and enjoy!
 * Recommended Pages:
     * [Ethereum Development Documentation](https://ethereum.org/en/developers/docs)
