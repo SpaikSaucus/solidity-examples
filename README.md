@@ -200,4 +200,4 @@ So we can rewrite the loop this way and potentially save a significant amount of
 
 ## License
 
-Is licensed under [The MIT License](LICENSE.md).
+Is licensed under [The MIT License](LICENSE).
